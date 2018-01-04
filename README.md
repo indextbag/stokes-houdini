@@ -1,25 +1,17 @@
 # Stokes Variational Micro-Solver Plugin DOP for Houdini
 
+This is the Windows build version of Stokes Variational Micro-Solver Plugin DOP for Houdini located at 
+https://github.com/elrnv/stokes-houdini. 
 
 ## Building
 
-Before building anything, set the EIGEN_INCLUDE_DIR environment variable to where you
-installed the Eigen library in the Makefile.
+1. run "C:\Program Files\Side Effects Software\<YOUR_HOUDINI_VERSION>\bin\hcmd.exe"
+2. cd repository/SIM folder . run command "hcustom SIM_Stokes.cpp". 
+3. hcustom will place a file named "SIM_Stokes.dll" into your %HOME%/houdini%HOUDINI_VERSION%/dso folder. 
+   if you dont have a dso folder just create one 
+4. "hdk_stoke" will be available in DOP network. 
 
-SIM_Stokes.C and SIM_Stokes.h are the C++ files defining the Houdini plugin DOP.
-In order to build them, source a houdini enviroment with
-
-```
-$ pushd /opt/hfs##.#.#/; source houdini_setup; popd
-```
-
-Then build with
-```
-$ make install
-```
-
-Note: instructions will differ for Windows
-
+"Tested on Houdini 16.0.633"
 
 ## Usage
 
