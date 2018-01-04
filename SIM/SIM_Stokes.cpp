@@ -1,4 +1,5 @@
 #include "SIM_Stokes.h"
+#include <UT/UT_DSOVersion.h>
 #include <UT/UT_Interrupt.h>
 #include <UT/UT_PerfMonAutoEvent.h>
 #include <UT/UT_VoxelArray.h>
@@ -10,6 +11,8 @@
 #include <SIM/SIM_MatrixField.h>
 #include <SIM/SIM_RawIndexField.h>
 #include <SIM/SIM_Object.h>
+#include <OP/OP_Operator.h>
+#include <OP/OP_OperatorTable.h>
 #include <GAS/GAS_SubSolver.h>
 #include <CE/CE_Vector.h>
 #include <CE/CE_SparseMatrix.h>
@@ -25,6 +28,13 @@ using std::tuple;
 using std::make_tuple;
 using std::tie;
 using std::move;
+
+
+//Houdini hook
+void initializeSIM(void *) {
+	IMPLEMENT_DATAFACTORY(SIM_Stokes);
+}
+
 
 namespace // hide from others
 {
@@ -711,7 +721,7 @@ SIM_Stokes::getDopDescription()
       "Solver",   // Default data name
       classname(),  // The type of this DOP, usually the class.
       theTemplates);  // Template list for generating the DOP
-  setGasDescription(theDopDescription);
+      setGasDescription(theDopDescription);
 
   return &theDopDescription;
 }
