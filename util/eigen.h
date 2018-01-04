@@ -13,9 +13,9 @@
 
 #undef B2
 //#define EIGEN_HAS_OPENMP
-#include <Eigen/Sparse>
-#include <Eigen/LU>
-#include <Eigen/Dense>
+#include <../Eigen/Sparse>
+#include <../Eigen/LU>
+#include <../Eigen/Dense>
 
 // Dense types
 // to reduce verbosity explicitly state which Eigen structures we use here
